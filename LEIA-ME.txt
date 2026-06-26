@@ -1,0 +1,11 @@
+VERSÃO CORRIGIDA - BOLA PEGÁVEL + CESTA LINEAR
+
+Correções desta versão:
+- A bola agora fica disponível para arremesso por posição, quando chega na região da barra da frente, sem depender de evento de colisão instável.
+- A zona de captura foi aproximada da barra para evitar o bug de a bola encostar visualmente e não liberar o arremesso.
+- A cesta não usa mais seno/curva, agora anda em movimento retilíneo uniforme: vai para um lado, bate no limite, volta com velocidade constante.
+- Depois de 1 minuto a cesta começa a se mover.
+- Depois de 1 minuto e 30 segundos a velocidade aumenta.
+- Comandos mantidos: A/D ou setas para mirar, segurar Espaço para carregar e soltar Espaço para arremessar.
+
+Substitua sua pasta src pela pasta src deste zip.
