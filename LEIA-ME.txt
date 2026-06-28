@@ -1,11 +1,28 @@
-VERSÃO CORRIGIDA - BOLA PEGÁVEL + CESTA LINEAR
+Basketball R3F Webcam - gesto corrigido
 
-Correções desta versão:
-- A bola agora fica disponível para arremesso por posição, quando chega na região da barra da frente, sem depender de evento de colisão instável.
-- A zona de captura foi aproximada da barra para evitar o bug de a bola encostar visualmente e não liberar o arremesso.
-- A cesta não usa mais seno/curva, agora anda em movimento retilíneo uniforme: vai para um lado, bate no limite, volta com velocidade constante.
-- Depois de 1 minuto a cesta começa a se mover.
-- Depois de 1 minuto e 30 segundos a velocidade aumenta.
-- Comandos mantidos: A/D ou setas para mirar, segurar Espaço para carregar e soltar Espaço para arremessar.
+Como rodar:
+1. npm install
+2. npm run dev
+3. Clique em "Ativar webcam e iniciar" e permita a câmera.
 
-Substitua sua pasta src pela pasta src deste zip.
+Controles por webcam:
+- Mover a mão para esquerda/direita: mira
+- Fechar a mão: pega uma bola pronta e começa a carregar a força
+- Abrir bem a mão: arremessa
+
+Fallback no teclado:
+- A / D ou setas: mira
+- Segurar Espaço: pega/carrega
+- Soltar Espaço: arremessa
+- R: reinicia
+
+Correção desta versão:
+- A leitura de mão aberta/fechada agora usa histerese: precisa detectar o mesmo gesto por alguns frames antes de acionar.
+- Removida a regra que travava o arremesso quando a mão já tinha sido lida como aberta antes.
+- O gesto fechado e aberto agora tem uma zona neutra para evitar disparos falsos.
+
+
+Correção desta versão:
+- Removido o estado neutro quando a mão está visível.
+- A mão detectada agora sempre aparece como aberta ou fechada.
+- A troca aberta/fechada continua estabilizada por alguns frames para evitar tremedeira.

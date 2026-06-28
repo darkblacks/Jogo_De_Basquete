@@ -11,130 +11,148 @@ body,
   overflow: hidden;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #07111f;
+  color: white;
 }
 
 button {
-  font-family: inherit;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
 }
 
 .app {
-  position: relative;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .hud {
   position: absolute;
   z-index: 5;
-  color: #fff;
   pointer-events: none;
 }
 
 .topHud {
-  top: 18px;
-  left: 18px;
-  right: 18px;
+  top: 14px;
+  left: 14px;
   display: flex;
-  gap: 12px;
+  gap: 9px;
   align-items: stretch;
 }
 
 .stat {
-  min-width: 108px;
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  background: rgba(3, 7, 18, 0.66);
+  min-width: 100px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: rgba(3, 7, 18, 0.68);
   backdrop-filter: blur(12px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
 }
 
 .stat.wide {
-  min-width: 210px;
+  min-width: 150px;
 }
 
-.stat span,
-.aimPanel span,
-.powerPanel span {
+.stat span {
   display: block;
-  font-size: 12px;
   color: #93c5fd;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
+  font-size: 12px;
+  margin-bottom: 3px;
 }
 
 .stat strong {
-  font-size: 25px;
+  color: white;
+  font-size: 21px;
   line-height: 1;
+  display: block;
+}
+
+.webcamHud {
+  top: 14px;
+  right: 14px;
+  width: 250px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  background: rgba(3, 7, 18, 0.68);
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.webcamTitle {
+  color: #93c5fd;
+  font-weight: 900;
+  margin-bottom: 4px;
 }
 
 .bottomHud {
-  left: 18px;
-  bottom: 18px;
-  display: grid;
-  grid-template-columns: minmax(180px, 260px);
-  gap: 10px;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  width: min(680px, calc(100vw - 28px));
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  background: rgba(3, 7, 18, 0.74);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
 }
 
 .aimPanel,
-.powerPanel,
-.readyTag {
-  width: 260px;
-  padding: 11px 12px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(3, 7, 18, 0.66);
-  backdrop-filter: blur(12px);
+.powerPanel {
+  display: inline-block;
+  width: calc(50% - 8px);
+  vertical-align: top;
+}
+
+.aimPanel {
+  margin-right: 12px;
+}
+
+.aimPanel span,
+.powerPanel span {
+  display: block;
+  color: #dbeafe;
+  font-size: 12px;
+  margin-bottom: 6px;
 }
 
 .aimBar,
 .powerBar {
   position: relative;
-  height: 10px;
-  border-radius: 99px;
-  background: rgba(148, 163, 184, 0.3);
+  height: 13px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
   overflow: hidden;
-}
-
-.aimBar::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.7);
 }
 
 .aimBar i {
   position: absolute;
-  top: 50%;
+  top: 0;
   width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  height: 100%;
+  border-radius: 999px;
   background: #38bdf8;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.95);
+  transform: translateX(-50%);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.75);
 }
 
 .powerBar i {
   display: block;
   height: 100%;
+  border-radius: 999px;
   background: linear-gradient(90deg, #22c55e, #facc15, #ef4444);
-  border-radius: inherit;
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.5);
 }
 
-.readyTag {
-  min-height: 44px;
-  color: #cbd5e1;
-  font-weight: 700;
-}
-
-.readyTag.on {
-  color: #fef3c7;
-  border-color: rgba(250, 204, 21, 0.5);
-  box-shadow: 0 0 24px rgba(250, 204, 21, 0.18);
+.hint {
+  margin-top: 10px;
+  text-align: center;
+  color: #dbeafe;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .overlay,
@@ -142,134 +160,147 @@ button {
   position: absolute;
   inset: 0;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  color: #fff;
-  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.12), rgba(2, 6, 23, 0.72));
+  display: grid;
+  place-items: center;
+  background: rgba(2, 6, 23, 0.58);
+  backdrop-filter: blur(8px);
 }
 
 .card {
-  width: min(520px, 92vw);
-  padding: 34px;
-  border-radius: 28px;
+  width: min(540px, calc(100vw - 28px));
+  padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(3, 7, 18, 0.82);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.42);
+  border-radius: 26px;
+  background: rgba(15, 23, 42, 0.9);
   text-align: center;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
 }
 
-.eyebrow {
-  margin: 0 0 6px;
+.card .eyebrow {
+  margin: 0 0 8px;
   color: #38bdf8;
-  font-weight: 800;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
+  letter-spacing: 0.14em;
   font-size: 12px;
+  font-weight: 900;
 }
 
 .card h1 {
   margin: 0 0 12px;
-  font-size: clamp(34px, 7vw, 58px);
-  line-height: 0.95;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1;
 }
 
 .card p {
+  margin: 0 0 18px;
   color: #cbd5e1;
-  line-height: 1.6;
-  margin: 0 auto 20px;
+  line-height: 1.55;
+}
+
+.card button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px 18px;
+  border-radius: 16px;
+  color: #07111f;
+  background: #38bdf8;
+  font-weight: 900;
+  box-shadow: 0 16px 30px rgba(56, 189, 248, 0.28);
+}
+
+.card button.secondary {
+  color: #e0f2fe;
+  background: rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: none;
 }
 
 .card small {
   display: block;
-  margin-top: 16px;
+  margin-top: 12px;
   color: #94a3b8;
-}
-
-.card button,
-.mobileControls button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 16px;
-  padding: 14px 20px;
-  color: #06111f;
-  font-size: 16px;
-  font-weight: 900;
-  background: linear-gradient(135deg, #facc15, #fb923c);
-  box-shadow: 0 16px 34px rgba(251, 146, 60, 0.28);
-}
-
-.card button.secondary {
-  margin-left: 10px;
-  color: #e2e8f0;
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: none;
-}
-
-.countdown {
-  flex-direction: column;
-  background: rgba(2, 6, 23, 0.58);
+  line-height: 1.45;
 }
 
 .countdown span {
-  font-size: clamp(100px, 20vw, 220px);
-  line-height: 1;
+  display: grid;
+  place-items: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  color: #111827;
+  background: radial-gradient(circle at 30% 25%, #fef3c7, #f59e0b 55%, #92400e);
+  font-size: 92px;
   font-weight: 1000;
-  text-shadow: 0 0 48px rgba(250, 204, 21, 0.6);
+  box-shadow: 0 24px 90px rgba(245, 158, 11, 0.4);
 }
 
 .countdown p {
-  margin: 0;
-  font-size: 20px;
-  color: #fef3c7;
+  margin: 18px 0 0;
+  color: #e0f2fe;
+  font-size: 18px;
   font-weight: 800;
 }
 
-.mobileControls {
+.webcamPreview {
   position: absolute;
-  right: 18px;
-  bottom: 18px;
-  z-index: 8;
-  display: none;
-  gap: 10px;
+  z-index: 4;
+  right: 14px;
+  bottom: 14px;
+  width: 180px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #020617;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
 }
 
-.mobileControls button {
-  min-width: 58px;
-  padding: 14px 16px;
-  pointer-events: auto;
+.webcamPreview canvas {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.mobileControls .shootBtn {
-  min-width: 138px;
+.hiddenVideo {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 760px) {
   .topHud {
+    right: 10px;
     flex-wrap: wrap;
   }
 
-  .bottomHud {
-    bottom: 98px;
-  }
-
-  .mobileControls {
-    display: flex;
-  }
-
   .stat {
-    min-width: 96px;
+    min-width: calc(50vw - 22px);
+    padding: 9px 10px;
   }
 
-  .stat.wide {
-    min-width: 170px;
+  .stat strong {
+    font-size: 18px;
   }
 
-  .aimPanel,
-  .powerPanel,
-  .readyTag {
-    width: min(260px, calc(100vw - 36px));
+  .webcamHud {
+    top: auto;
+    right: 10px;
+    bottom: 120px;
+    width: 210px;
+    font-size: 12px;
+  }
+
+  .webcamPreview {
+    right: 10px;
+    bottom: 10px;
+    width: 154px;
+  }
+
+  .bottomHud {
+    width: calc(100vw - 20px);
+    bottom: 10px;
   }
 }

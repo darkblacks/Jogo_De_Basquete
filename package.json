@@ -1,5 +1,5 @@
 {
-  "name": "basketball-r3f-mvp",
+  "name": "basketball-r3f-webcam-arcade-final",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,14 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "latest",
+    "@mediapipe/tasks-vision": "latest",
     "@react-three/fiber": "latest",
     "@react-three/rapier": "latest",
-    "@vitejs/plugin-react": "latest",
-    "vite": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "three": "latest"
+    "three": "latest",
+    "vite": "latest"
   },
   "devDependencies": {}
 }
