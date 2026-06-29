@@ -1,4 +1,50 @@
-node_modules/ 
-dist/ 
-.env 
-.env.local 
+# Dependências
+node_modules/
+
+# Build
+dist/
+build/
+
+# Cache
+.cache/
+.vite/
+.parcel-cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testes / cobertura
+coverage/
+
+# Arquivos temporários
+tmp/
+temp/
+
+# Uploads/exports locais
+*.zip
+*.rar
+*.7z
+
+# Debug
+debug.log
